@@ -1,0 +1,230 @@
+/* ========================================= */
+/* 1. Global Setup and Variables (Theme)     */
+/* ========================================= */
+:root {
+    --primary-green: #008000;
+    --text-color: #333;
+    --border-color: #ccc;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: var(--text-color);
+}
+
+* {
+    box-sizing: border-box; 
+}
+
+
+/* ========================================= */
+/* 2. Page Layout (Box Right Aligned)        */
+/* ========================================= */
+.page-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    
+    /* FIX: Box ko Right side par push aur center mein rakhne ke liye */
+    align-items: flex-end; /* Horizontal alignment to the right */
+    justify-content: center; /* Vertical centering */
+    
+    padding: 0; 
+    
+    /* *** BACKGROUND IMAGE SETUP (Aapki Image) *** */
+    background-image: url('BG img.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative; 
+}
+
+/* ========================================= */
+/* 3. Signup Box Styles (Right/Green Area)   */
+/* ========================================= */
+.signup-section {
+    width: 400px; 
+    max-width: 90%; 
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    /* FIX: Right side se margin dekar green area mein adjust kiya */
+    margin: 20px 10% 20px 0; 
+    position: relative; 
+    z-index: 100;
+}
+
+/* Header/Logo Styles */
+.logo-title { color: var(--primary-green); text-align: center; margin: 0 0 10px 0; font-size: 28px; }
+.signup-section h2 { text-align: center; margin-top: 0; color: var(--primary-green); }
+
+
+/* ========================================= */
+/* 4. Input Fields and Label Styling         */
+/* ========================================= */
+.credentials-group {
+    border: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input-group {
+    margin: 0;
+    padding: 0;
+    position: relative; 
+}
+
+.input-group label {
+    display: block; 
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+/* Common Input Styles */
+.credentials-group input {
+    width: 100%; 
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 16px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Password Inputs (Adjusted for Label) */
+.password-wrapper input {
+    padding-right: 85px; 
+}
+
+.password-toggle {
+    position: absolute;
+    right: 5px; 
+    /* FIX: Password toggle ko input field ke vertical center mein set kiya */
+    /* Hum input field ki bottom position se calculate kar rahe hain */
+    bottom: 7px; 
+    
+    /* transform: translateY(-50%) ko hata diya hai, bottom use kiya hai */
+    
+    padding: 5px 10px;
+    background: white; 
+    border: none;
+    color: var(--primary-green);
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+    z-index: 2; 
+}
+
+/* ========================================= */
+/* 5. Button and Footer Styles               */
+/* ========================================= */
+.signup-btn { padding: 12px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; font-weight: bold; background-color: var(--primary-green); color: white; margin-top: 10px; }
+.signup-section footer { text-align: center; }
+.login-link { color: var(--primary-green); text-decoration: none; font-weight: bold; }
+
+
+/* ========================================= */
+/* 6. Slider Space (Desktop: Left/White Area)*/
+/* ========================================= */
+.slider-space {
+    position: absolute; 
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 50%; 
+    min-height: 100vh; 
+    background-color: transparent; 
+    padding: 50px; 
+    z-index: 50; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+    color: var(--text-color);
+}
+
+.image-slider-placeholder {
+    width: 100%;
+    min-height: 200px; 
+    background-color: #f0f0f0; 
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+/* ========================================= */
+/* 7. Mobile Styles (Responsive Fixes)       */
+/* ========================================= */
+@media (max-width: 768px) {
+    .page-container {
+        align-items: center; 
+        justify-content: flex-start;
+        background-image: none; 
+        background-color: white; 
+        padding: 0;
+        flex-direction: column; 
+        
+    }
+
+    .signup-section {
+        width: 100%; 
+        max-width: none;
+        padding: 20px;
+        box-shadow: none; 
+        margin: 0; 
+        border-radius: 0;
+    }
+    
+    .slider-space {
+        position: relative; 
+        display: block; 
+        width: 100%; 
+        min-height: 150px; 
+        padding: 30px 20px; 
+        z-index: 1; 
+        margin-top: 20px; 
+        background-color: white; 
+    }
+}
+
+
+/* Container for the images */
+.image-slider-placeholder {
+    position: relative; /* Essential for stacking */
+    width: 100%; /* Adjust as needed */
+    height: 300px; /* **IMPORTANT:** Set a height or the images won't appear */
+    overflow: hidden;
+}
+
+/* All images inside the slider */
+.slider-image {
+    position: absolute; /* Stack them all in the same spot */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures images fill the container without stretching */
+    opacity: 0; /* Default: hidden */
+    transition: opacity 1s ease-in-out; /* Smooth transition when changing */
+}
+
+/* The currently active image */
+.slider-image.active {
+    opacity: 1; /* Make the active image visible */
+}
+
+.slider-paragraph-space{
+    padding-bottom: 20px;
+}
+

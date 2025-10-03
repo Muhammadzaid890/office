@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sadaf Estate</title>
+</head>
+<body>
+    <h1>Welcome</h1>
+    <h2 id="message"></h2>
+
+<button onClick="logout()">Logout</button>
+
+
+
+
+<script src="https://www.gstatic.com/firebasejs/12.3.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.3.0/firebase-auth-compat.js"></script>
+
+<script>
+     // TODO: Replace the following with your app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyBfy_rf1J7d0qfccVufdr7sgBmCJZTSGI4",
+  authDomain: "office-prj-d5ad0.firebaseapp.com",
+  projectId: "office-prj-d5ad0",
+  storageBucket: "office-prj-d5ad0.firebasestorage.app",
+  messagingSenderId: "900969137817",
+  appId: "1:900969137817:web:ec836a86aa893bf0f3da08",
+  measurementId: "G-8G4WJ42V2S"
+};
+
+firebase.initializeApp(firebaseConfig);
+</script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
